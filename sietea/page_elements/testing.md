@@ -100,3 +100,7 @@ end
   ``` 
   `parse_data` no retorna `:output`
   * el metodo `parse_data` no devuelve nada por en caso de no estan en el when-case
+
+### AttributionChart
+*problemas*
+  * si `:attribution_type` es `WATERFALL`

@@ -186,34 +186,55 @@
 - [x] configurar entorno para test de integracion
 ### tarde
 **sietea**
-- [x] crear test de page_elements que no dependen de `data`
-- [x] crear al menos un test de un page_element que dependa de `data`
-
+- crear test de page_elements que no dependen de `data`
+  * [x] GenericTable,
+  * [x] GenericChart,
+- crear al menos un test de un page_element que dependa de `data`
+  * [x] AllocationLimitsChart
+- 3/38 page_elements_tests
 ## 25-03-2026
 ### mañana
 **sietea**
-- [x] crear test para 
-  * [x] AllocationChart,
-  * [x] AllocationManager,
+- crear test para 
+  * [x] AllocationChart 4/38, 
+  * [x] AllocationManager 5/38,
 ### tarde
 **sietea**
-- [x] crear test para 
-  * [x] AssetMasterTable,
+- crear test para 
+  * [x] AssetMasterTable 6/,
   * [x] AssetsDetailClpNotClpGroupedByAttributesAndCustodian,
   * [x] IndexTable
+- 8/38 page_element_tests
 
 ## 26-03-2026
 ### mañana
 **sietea**
-- [x] crear test para 
+- crear test para 
   * [x] GainLoss,
   * [x] AssetsDetailGroupedByAttributesAndCustodian
   * [x] AssetsModificationTableTest
 ### tarde
 **sietea**
-- [x] crear test para 
+- crear test para 
   * [x] AttributionChartA
   * [x] BenchmarkSeries (este son como 9 en uno)
+- 13/38 page_element_tests
+
+## 27-03-2026
+### mañana
+**sietea**
+- crear test para 
+  * [] CustodianAssetTable,
+  * [] CustodianTable
+  * [] DetailedCostTer
+  * [] EqualityFlowTwo
+  * [] EqualityFlow
+  * [] EvolutionAllocationManager
+  * [] EvolutionAssetsDistributionElement
+### tarde
+**sietea**
+
+
 ## penditnes
 - [] Ansiblev2: restore users
 

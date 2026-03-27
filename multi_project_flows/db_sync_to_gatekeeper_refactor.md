@@ -68,9 +68,9 @@ rama client-manager : `DEV-3898/internal-request-module`
   ```
 - gatekeeper ejecuta la accion
 
+______________________________________________________________________________________________
 
-
-# Nuevo flujo
+# Refactorizacion
 
 ### modelos de client-manager
 ```diff
