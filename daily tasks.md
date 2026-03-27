@@ -224,15 +224,22 @@
 ### mañana
 **sietea**
 - crear test para 
-  * [] CustodianAssetTable,
-  * [] CustodianTable
-  * [] DetailedCostTer
-  * [] EqualityFlowTwo
-  * [] EqualityFlow
-  * [] EvolutionAllocationManager
-  * [] EvolutionAssetsDistributionElement
+  * [x] CustodianAssetTable,
+**dev_docs**
+- creando documentos
+  - [x] flujo semaphore y client-manager
+  - [x] api_consumer refactor de ansibleV2
 ### tarde
 **sietea**
+-crear test para
+  * [x] CustodianTable
+  * [x] DetailedCostTer
+  * [x] EqualityFlowTwo
+  * [x] EqualityFlow
+  * [x] EvolutionAllocationManager
+  * [x] EvolutionAssetsDistributionElement
+  * [x] FifoLotsGroupedByAttribute
+- 21/38 page_element_tests
 
 
 ## penditnes

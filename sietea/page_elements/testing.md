@@ -104,3 +104,23 @@ end
 ### AttributionChart
 *problemas*
   * si `:attribution_type` es `WATERFALL`
+
+### EquityFlowTwo
+*problemas*
+  * en `initialize` llamada a un registro completo de `Level` solo para extraer el campo profit_start_date
+  * esto no es un problema muy grande, aun se puede testear de forma simple,solo requiere indicar unos ids, el problema es que no esta respetando el estandard de page_elements y hace una query poco optima
+
+  * este componente acepta en `params[:entity_type]` : `level, group y multiple_group`, pero ni group ni multiple_group existen en sietea, por lo que al hacer `@parameters[:entity_type].classify.constantize` explota
+
+### EvolutionAssetsDistributionElement
+*problemas*
+  * [x] `parse_data` hace calculos y demas cosas, necesita modificar el codigo para manejar numeros y date que vienen en forma de strings y necesitan ser transformados a Float o Date, de lo contrario falla al intentar user metodos o hacer operaciones con atributos que son `string`
+    - actualmente se usa stubbing y redifiniciones para sortear esto
+
+### FifoLotsGroupedByAttribute
+*problemas*
+  * [x] el metodo data se llama dentro de `render` rompiendo el uso de `data` como argumento y duplicando la llamada
+  ```rb
+  max_depth = calculate_max_depth(self.data[:output])
+  ```
+  `parse_data` no retorna `:output`
