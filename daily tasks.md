@@ -196,13 +196,13 @@
 ### mañana
 **sietea**
 - crear test para 
-  * [x] AllocationChart 4/38, 
-  * [x] AllocationManager 5/38,
+  * [x] AllocationChart 
+  * [x] AllocationManager
 ### tarde
 **sietea**
 - crear test para 
-  * [x] AssetMasterTable 6/,
-  * [x] AssetsDetailClpNotClpGroupedByAttributesAndCustodian,
+  * [x] AssetMasterTable
+  * [x] AssetsDetailClpNotClpGroupedByAttributesAndCustodian
   * [x] IndexTable
 - 8/36 page_element_tests
 
@@ -217,7 +217,7 @@
 **sietea**
 - crear test para 
   * [x] AttributionChartA
-  * [x] BenchmarkSeries (este son como 9 en uno)
+  * [x] BenchmarkSeries
 - 13/36 page_element_tests
 
 ## 27-03-2026
@@ -257,16 +257,28 @@
 ### tarde
 **sietea**
 -crear test para
-  * [] RvDataTable
-  * [] TableEditor´
-  * [] TaxReport
-- 31/36 page_element_tests
+  * [x] RvDataTable
+  * [x] TableEditor´
+  * [x] TaxReport
+  * [x] TextEditor
+  * [x] TopElementsElement
+  * [x] TransactionsTable
+  * [x] ValueAtRisk
+- all page_element_tests
 
-
-
+## 31-03-2026
+### mañana
+**sietea**
+- Sietea highcharts testing :
+  * [] crear assert standard + limpiar
+  * [] limpiar instrucciones de cabezera de la IA
+  * [] evaluar reutilizacion de 
+### tarde
+**sieteqa**
 
 ## penditnes
 - [] Ansiblev2: restore users
+
 
 ### Obligatorios
 - Agregar al restore la opción de restaurar los usuarios
@@ -281,6 +293,7 @@
 - [x] Arreglar logs de restore_client_environment (como la arquitectura cambio, algunos logs dicen cosas que ya no son ciertas)
 - [] Refactorizar arquitectura de semaphore
 - [] agregar entorno de pruebas para restore_client_environment en ansibleV2
+- [] continuando con el refactor de db_sync a gk_request transformar la configuracion que ahora es un hash en el modelo de GatekeeperRequest en un JSON en la base de datos tal como lo hace AWS, que se valide en el modelo y en el backend y que pueda ser editador directamente desde roles y permisos => admin => gatekeeper resource
 
 ## Recordatorios post desarrollo
 **client manager internal request**
