@@ -68,6 +68,11 @@ end
   * [] lo mismo si se necesita que algun atributo especifico se encuentre en `param` o `data`, si no esta el codigo continua e intenta hacer operaciones imposibles lanzando errores de todo tipo los cuales no son utiles ni claros
 
 ## PageElements
+
+### AllocationChart
+  * [] codigo 400 de highcharts, se ha enviado alguna propiedad invalida (categories tiene valores null)
+    test : test_bars_with_color_by_value_pdf
+
 ### AssetMasterTable
 *problemas*
   * [x] algunas barras como en asset_master_table_test => test_bars_profit_mkt_pdf no modifican su z-index (nose como se llama aqui) automaticamente, lo que siempre que haya 2 barras una tape a la otra si resulta tener un valor mayor
@@ -124,3 +129,38 @@ end
   max_depth = calculate_max_depth(self.data[:output])
   ```
   `parse_data` no retorna `:output`
+
+----------------------------------------------------------
+----------------------------------------------------------
+## PdfElements
+
+### HorizontalTable
+*problemas*
+  * [] si no se pasa `weight en los headers` dara un error de float null en Prawn
+
+------------------------------------------------------------
+------------------------------------------------------------
+
+## problemas o posibles problemas en el codigo
+
+- no hay casi ningun tipo de validacion lo que hace que se generen errores confusos o que pase data invalida a highchart lo cual resulta en que el server de highcharts se quede pillado
+
+- a pesar de que se suguiere la posibilidad de pasar data a travez de `params`, es engañoso en algunos casos ya que en varios componentes se realizan operaciones que no contemplan el caso en el que al stringificar y parsear JSON el tipo de las variables cambie, por ejemplo:
+  * Data => string 
+  * int/float => string
+
+- no respeta sus propias reglas/patrones
+  * `paramaters` se supone que viene de params o son cosas de la clase base `page_element_base` pero el metodo `parse_data` varias veces crea parametros sin aviso, resignando cosas que estaban en `data` a una variable y luego esa variable asignandola a `parameters`, todo un caos
+
+  * el codigo siempre hara que data ya sea que venga de `params` o de `self.data` pase por `parse_data`, pero en vez de atjarlo en la primera linea del metodo `render` parsea `self.data` en el mismo valor por defecto del argumento y en el caso de `params[:data]` lo hace en `generic_export` antes de pasarlo a `render`
+
+  * muchos componentes tienen codigo Copy-pasteados de otros componentes, el problema es que la mayoria de ese codigo sobra completamente, no se usa y parece que se pego por el miedo a no romper el codigo, ensuciando la lectura o permitiendo comportamientos inesperados y vulnerabilidades varias, aqui hay demasiados ejemplos asique solo pondre 2 muy claros:
+    `COLUMNS` : confuso, porque muchos asignan esto a `header` o contiene valores que jamas se manejan o que nisiquiera tienen sentido dentro del contexto de lo que grafica el componente
+    `RULES` : en la mayoria de casos no tiene sentido porque no se usan para validar nada
+
+  * componentes ineccesarios: muchos componentes se podrian agrupar en una solo porque usan las mismas reglas y columnas como es el caso de `assets_detail_`, esto tambien ignora el patron de `visuaization_type`, hace qu se repita codigo y por lo tanto problemas que hay en un componente pasan a estar en otro ya que al parecer se ha copypasteado
+
+  * `COLUMNS` `parameters[:columns]` y `:header` tienen un serio problema de identidad, ejemplos de casos:
+    - se recibe `data[:header]` para luego convetirlos a una variable header_list (o algo similar) para luego declararlo como `parameters[:columns]`
+    - el caso contrario recibirlo como `params[:columns]` y termina siendo `outputs[:header]` o algo asi
+    - recibir `params[:columns]` o `data[:header]` para al final simplemente ignorarlos y usar la constante `COLUMNS` directamente

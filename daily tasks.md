@@ -191,7 +191,7 @@
   * [x] GenericChart,
 - crear al menos un test de un page_element que dependa de `data`
   * [x] AllocationLimitsChart
-- 3/38 page_elements_tests
+- 3/36 page_elements_tests
 ## 25-03-2026
 ### mañana
 **sietea**
@@ -204,7 +204,7 @@
   * [x] AssetMasterTable 6/,
   * [x] AssetsDetailClpNotClpGroupedByAttributesAndCustodian,
   * [x] IndexTable
-- 8/38 page_element_tests
+- 8/36 page_element_tests
 
 ## 26-03-2026
 ### mañana
@@ -218,7 +218,7 @@
 - crear test para 
   * [x] AttributionChartA
   * [x] BenchmarkSeries (este son como 9 en uno)
-- 13/38 page_element_tests
+- 13/36 page_element_tests
 
 ## 27-03-2026
 ### mañana
@@ -239,7 +239,30 @@
   * [x] EvolutionAllocationManager
   * [x] EvolutionAssetsDistributionElement
   * [x] FifoLotsGroupedByAttribute
-- 21/38 page_element_tests
+- 21/36 page_element_tests
+
+## 30-03-2026
+### mañana
+**sietea**
+- crear test para 
+  * [x] InformationRatio
+  * [x] MarcowitzGraph
+  * [x] MonthlyProfitabilityElement
+  * [x] ProjectedCashFlowElement
+  * [x] RfBondsDataTable
+  * [x] RfBondsPanel
+  * [x] RfSeriesManager
+- añadir render cases faltantes
+  * [x] AllocationChart
+### tarde
+**sietea**
+-crear test para
+  * [] RvDataTable
+  * [] TableEditor´
+  * [] TaxReport
+- 31/36 page_element_tests
+
+
 
 
 ## penditnes
