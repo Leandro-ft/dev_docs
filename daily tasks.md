@@ -269,16 +269,68 @@
 ## 31-03-2026
 ### mañana
 **sietea**
-- Sietea highcharts testing :
-  * [] crear assert standard + limpiar
-  * [] limpiar instrucciones de cabezera de la IA
-  * [] evaluar reutilizacion de 
+- agregar tasts faltantes:
+  * [x] ManagerMasterTable
+- page_elements testing:
+  * [x] crear assert standard + limpiar
 ### tarde
-**sieteqa**
+**sietea**
+- page_elements testing
+  - en cada archivo de test:
+    * [x] cambiar variable por inline en caso de que no se este reutilizando o modificando para mejorar la legibilidad
+    * [x] eliminar comentarios redundantes 
+    * [x] evaluar data reutilizable sin perjudicar la legibilidad del mock
+
+## 01-04-2026
+### mañana
+**ansiblev2**
+- [x] limpiar docker compose up
+- [x] agregar backup inicial
+### tarde
+**client-manager**
+- [x] migracion cambio de nombre new_bracn => add_branch
+**ansiblev2**
+- [x] documentar contenedores semaphore
+- [x] limpiar y testear docker-compose 
+
+## 02-04-2026
+### mañana
+**ansiblev2**
+- [x] fix para script de restore y gatekeeper
+**client-manager**
+- implementar user.semaphore_api_token
+  * [x] crear migracion
+  * [x] modificar vista y controlador para poder editarlo
+  * [x] modificar semaphoreService si es necesario
+### tarde
+**client-manager**
+- implementar user.semaphore_api_token
+  * [x] encriptar semaphore_api_token
+  * [x] testear flujo completo con semaphore_api_token
+- client-manager mejoras de legibilidad => {
+  * [x] mejorar SemaphoreError para mostrar info mas precisa
+  * [x] agregar color, o color parcial a los de semaphore_task
+}
 
 ## penditnes
-- [] Ansiblev2: restore users
+- client-manager/ansiblev2: semaphore user sync => {
+  - [] migracion para agregar campo semaphore_api_token nullable a user
+  - [] agregar el api token a travez de formulario => user view
+  - [] modificar SemaphoreService para usar current_user.semaphore_api_token
+}
 
+- client-manager => {
+  - [] hacer que cada tarea deploy request pueda tener multiples tareas asociadas, ansucia menos y se puede hacer un mejor trackeo
+}
+
+- client-manager: gatekeeper_request STI impl => {
+  - [] crear vistas nuevas
+  - [] log_activity propio para cada modelo hijo
+  - [] separar validacion
+  - {} crear GatekeeperRequestConfig
+  - [] cada uno tiene su configuracion
+  - todos comparten el mismo api_controller pero distintos MVC
+}
 
 ### Obligatorios
 - Agregar al restore la opción de restaurar los usuarios
@@ -292,8 +344,9 @@
 - [x] Hacer autorizaciones controladas, (identificables y escalables)
 - [x] Arreglar logs de restore_client_environment (como la arquitectura cambio, algunos logs dicen cosas que ya no son ciertas)
 - [] Refactorizar arquitectura de semaphore
-- [] agregar entorno de pruebas para restore_client_environment en ansibleV2
 - [] continuando con el refactor de db_sync a gk_request transformar la configuracion que ahora es un hash en el modelo de GatekeeperRequest en un JSON en la base de datos tal como lo hace AWS, que se valide en el modelo y en el backend y que pueda ser editador directamente desde roles y permisos => admin => gatekeeper resource
+- [] remplazar comunicacion de echo sin formato con comunicacion en formato JSON
+
 
 ## Recordatorios post desarrollo
 **client manager internal request**
