@@ -312,28 +312,153 @@
   * [x] agregar color, o color parcial a los de semaphore_task
 }
 
+## 06-04-2026
+### mañana
+**client-manager**
+- gatekeeper_request STI refact => {
+  * [x] crear vistas nuevas
+  * [x] log_activity propio para cada modelo hijo
+  * [x] unificar validacion de actions
+  * [x] todos comparten el mismo api_controller pero distintos MVC
+  * [x] gatekeeper_controller handlers por defecto
+}
+### tarde
+**client-manager**
+- deployment_request 1-M semaphore_tasks
+  * [x] crear migracion para nueva columna task_references => {
+    project_id
+    task_id
+    created_date
+  }
+
+## 07-04-2026
+### mañana
+**client-manager**
+- testear gatekeeper STI
+  * [x] validacion dinamica 
+  * [x] independencia de vistas
+  * [x] logs
+  * [x] validacion y getters de actions args
+### tarde
+**client-manager**
+- deployment_request 1-M semaphore_tasks
+  * [x] adaptar creacion
+  * [x] modificar show
+  * [x] colocar opcion de re-launch request
+  * [x] actualizar logs para escuchar re-launch request
+
+## 08-04-2026
+### mañana
+**client-manager**
+- deployment_request 1-M semaphore_tasks
+  * [x] corregir prefetching de turbo
+  * [x] corregir bugs renderizado condicional
+- [x] corregir quejas de rubocop
+### tarde
+**ansiblev2**
+- [x] crear staging template
+
+**client-manager**
+- [x] actualizar semaphore service con staging template
+- [x] ocultar no cargar semaphore_api_token en vista edit
+- [x] solucion bug ver task 401 semaphore
+
+## 09-04-2026
+### mañana
+**client-manager**
+- [x] env semaphore_service config IDs
+- [x] mostrar estado de la ultima task arriba del todo
+- [x] arreglar name, usar Client.fintree_key_name
+- [x] arreglar problema vista STI gatekeeper_request title en show
+### tarde
+**ansibleV2**
+- [x] evitar que el usuario tenga que volver a poner contraseña en restore_client_environment.sh 
+  * testing
+    - [x] caso de que el archivo no exista
+    - [x] caso de que falle auth
+    - [x] caso de que exista y usar la password
+**client-manager**
+paralell task control
+- [x] implementar algoritmo
+- [x] implementar control de excepcion
+- testing
+  * bloqueo de deploy al mismo clienteÇ
+  * permitir ejecutar luego de que el task bloqueante termine
+  * permitir paralelos de distintos clientes
+- [x] actualizar backup de semaphore_project para incluir pararell tasks
+
+## 09-04-2026
+### mañana
+**client-manager**
+* [x] bugs renderizado de show dinamico en internal_request
+**ansiblev2**
+* [x] ebcryoted credentials para client-manager
+### tarde
+**client-manager**
+* [x] turbo-frame optimization
+
+## 13-04-2026
+### mañana
+- [x] estuadiar finanza corporativa
+### tarde
+**client-manager**
+- [x] arreglar problemas de renderizado
+- [x] estado de ultima tarea en deployment_request#index
+
+## 14-04-2026
+### mañana
+**client-manager**
+- Deployment_requests
+  * [x] coincidir client con server name
+  * [x] agregar la opcion de client null para que el server sea el nombre del proyecto
+### tarde
+**ansiblev2**
+- configurar crear y testear
+  * [x] credenciales con permisos filtrados dinamicamente para s3cfg
+
+## 15-04-2026
+### mañana
+**client-manager**
+- Server entity
+  * [x] create crud
+  * [x] configure permissions
+- DeploymentRequest Server implementation
+  * modify create
+### tarde
+**client-manager**
+- Server entity
+  * [x] create crud
+  * [x] configure permissions
+- DeploymentRequest
+  * [x] migration, remove client, add server and host_expr
+  * [c] refact MVC
+  * [x] test deploy with server
+
+## 16-04-2026
+### mañana
+**client-manager**
+- Server entity
+  * [x] create crud
+  * [x] configure permissions
+- DeploymentRequest Server implementation
+  * [x] modify create
+### tarde
+**client-manager**
+- DeploymentRequest
+  * [x] test deploy with server
+- DeploymentRequest massive requests
+  * [x] MVC hosts_expr refactor
+  * [x] semaphore_service integration
+
+## 17-04-2026
+### mañana
+**client-manager**
+* [x] notificacion de slack para internal requests
+### tarde
+- [x] retuilizacion de request
+
+
 ## penditnes
-- client-manager/ansiblev2: semaphore user sync => {
-  - [] migracion para agregar campo semaphore_api_token nullable a user
-  - [] agregar el api token a travez de formulario => user view
-  - [] modificar SemaphoreService para usar current_user.semaphore_api_token
-}
-
-- client-manager => {
-  - [] hacer que cada tarea deploy request pueda tener multiples tareas asociadas, ansucia menos y se puede hacer un mejor trackeo
-}
-
-- client-manager: gatekeeper_request STI impl => {
-  - [] crear vistas nuevas
-  - [] log_activity propio para cada modelo hijo
-  - [] separar validacion
-  - {} crear GatekeeperRequestConfig
-  - [] cada uno tiene su configuracion
-  - todos comparten el mismo api_controller pero distintos MVC
-}
-
-### Obligatorios
-- Agregar al restore la opción de restaurar los usuarios
 
 ### No obligatorios o ideas
 - [] Controlar request múltiple por clicks múltiples (simulus => Lo ve Felipe)

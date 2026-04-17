@@ -21,14 +21,6 @@
   * [] codigo 400 de highcharts, se ha enviado alguna propiedad invalida (categories tiene valores null)
     test : test_bars_with_color_by_value_pdf
 
-### AssetMasterTable
-*problemas*
-  * [x] algunas barras como en asset_master_table_test => test_bars_profit_mkt_pdf no modifican su z-index (nose como se llama aqui) automaticamente, lo que siempre que haya 2 barras una tape a la otra si resulta tener un valor mayor
-  * [x] su metodo parse_data lanza un error que hace que se responda con un `200 success` y con `application/html` lo cual no deberia pasar, es un error fantasma
-
-*peculiaridades*
-  - en este caso se debe enviar lo que espera `parse_data` debido a que la funcion
-
 ### AssetsDetailClpNotClpGroupedByAttributesAndCustodian
 *problemas*
   * [x] el metodo data se llama dentro de `render` rompiendo el uso de `data` como argumento y duplicando la llamada
