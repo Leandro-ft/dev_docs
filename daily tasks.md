@@ -453,12 +453,148 @@ paralell task control
 ## 17-04-2026
 ### mañana
 **client-manager**
-* [x] notificacion de slack para internal requests
+- [x] notificacion de slack para internal requests
 ### tarde
-- [x] retuilizacion de request
+- Retuilizacion de gatekeeper_request y expiracion de gatekeeper_actions
+  * [x] crear migraciones
+  * [x] asegurar claim y reintento (modificar vistas ,controller)
+  * [x] asegurar reintentos (modificar vistas controller)
 
+## 20-04-2026
+### mañana
+**client_manager**
+- [x] problema con external servers => inventario => template
+- [x] aclarar errores de semaphore
+- [x] arreglar STI routing
+### tarde
+**ansiblev2**
+- [x] reutilizar request en restore_client_environment
+- [x] arreglar carga de permisos
+
+## 21-04-2026
+### mañana
+**client-manager**
+- [x] data migration para evitar conflictos con registros anteriores
+### tarde
+**ansiblev2**
+- [x] definicion de hosts automatica en ansiblev2-restore-client-environment
+
+## 22-04-2026
+### mañana
+**client-manager**
+- edit para deployment_request
+  * [x] configurar MVC
+  * [x] continue_with_missed_commits
+### tarde
+**ansiblev2**
+- [x] url clickeable por entorno para client-manager
+- [x] pleanificar db utils refactor
+- [x] planificar guardado de credenciales en bitguarden
+
+## 23-04-2026
+### mañana
+**ansiblev2**
+- [x] opcion 2 create_and_download_backup de restore_client_environment.sh
+- db utils refactor
+  * [x] crear gatekeeper::action => "get_bash_utils"
+- bitwarden secrets
+  * [x] consolidar plan de implementacion
+### tarde
+**ansiblev2**
+- bitwarden
+  * [x] conexion playbook a bitwarden
+  * [] localizar creacion de credenciales y remplazar por bitwarden
+  * [] localizar y remplazar lectura de credenciales
+
+## 24-04-2026
+### mañana
+**ansiblev2**
+- [x] hacer refactor de db_utils.sh
+**all**
+- [x] agregar campo updated_at para elastic
+### tarde
+- [x] testear refactor de db_utils.sh
+
+## 27-04-2026
+### mañana
+**ansiblev2**
+- bitwarden secrets
+  * [x] remplazo de save
+  * [x] mapeo de IDs 
+### tarde
+**ansiblev2**
+- db_utils refactor
+  * [x] implementar el uso de paths para pedir archivos
+  * [x] opcion "all"
+  * [x] mensajes de errores claros y requerimentos obligatorios de archivos
+
+## 28-04-2026
+### mañana
+**ansiblev2**
+- bitwarden secrets
+  * [x] crear proyectos en bws
+  * [x] exportar secretos en bws
+  * [x] evitar duplicados
+### tarde
+- bitwarden secrets
+  * [x] crearndo script de obtencion de secretos y configuracion para deploy_project.yml
+
+## 29-04-2026
+### mañana
+**ansiblev2**
+- bitwarden secrets
+  * [x] bws dockerfile config
+  * [x] bws playbook config
+### tarde
+- db_utils refactor
+  * [x] ver error de malformacion de tarball en cliente y servidor
+  * [x] establecer BASE_PATH como env var
+
+## 30-04-2026
+### mañana
+- bitwarden secrets
+  * [x] config root playbook
+
+## 04-05-2026
+### mañana
+**ansiblev2**
+- bitwarden secrets
+  * [x] config root playbook
+### tarde
+**client manager**
+- [x] linkear creacion y destruccion de client con su respectivo server
+**ansiblev2**
+- bitwarden
+  * [x] resolver problema de ~nombredeusuario generado de la nada
+
+## 05-05-2026
+### mañana
+**ansiblev2**
+- db_utils refactor
+  * [x] unificar config de paths en docker compose
+- bitwarden secrets
+  * [x] formular nueva estrategia que maneje la concurrencia o permita cambios a futuro para hacerlo posible
+
+### tarde
+**ansiblev2**
+- bitwarden secrets
+  * [x] construir clase Setup para centralizar el proceso de carga inicial
+  * [x] crear metodo para dependiendo del rol y proyecto evitar la carga ineccesaria de credenciales
+  * [x] identificar multi-despliegue y cargar credenciales massiva o granularmente segun ciertos criterios
 
 ## penditnes
+**ansiblev2**
+- bitwarden
+  * hanlder creation
+    - [] lookup file replace
+    - [] lookup password replace
+  * implementation
+    - deploy-project role
+      [] replace file lookups
+    - configure-project role
+      [] replace file lookups
+      [] replace password lookups
+    - launch-aws-architecture
 
 ### No obligatorios o ideas
 - [] Controlar request múltiple por clicks múltiples (simulus => Lo ve Felipe)
