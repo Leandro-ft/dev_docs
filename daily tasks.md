@@ -574,13 +574,25 @@ paralell task control
   * [x] unificar config de paths en docker compose
 - bitwarden secrets
   * [x] formular nueva estrategia que maneje la concurrencia o permita cambios a futuro para hacerlo posible
-
 ### tarde
 **ansiblev2**
 - bitwarden secrets
   * [x] construir clase Setup para centralizar el proceso de carga inicial
   * [x] crear metodo para dependiendo del rol y proyecto evitar la carga ineccesaria de credenciales
   * [x] identificar multi-despliegue y cargar credenciales massiva o granularmente segun ciertos criterios
+
+## 05-05-2026
+### mañana
+**ansiblev2**
+- bitwarden secrets
+  * [x] visuallizar errores resumenes y ocultar stdout de secrets
+  * [x] testear carga condicional de secrets por rol, proyecto o host/s
+### tarde
+**ansiblev2**
+- bitwarden secrets
+  * [x] carga dinamica desde host_expr
+  * [x] funcion de remplazo para lookup password
+  * [x] remplazar lookup("file")
 
 ## penditnes
 **ansiblev2**
